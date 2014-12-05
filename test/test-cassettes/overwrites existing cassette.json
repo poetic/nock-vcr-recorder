@@ -1,0 +1,18 @@
+[
+  {
+    "scope": "http://localhost:4006",
+    "method": "GET",
+    "path": "/test",
+    "body": "",
+    "status": 200,
+    "response": "not-ok",
+    "headers": {
+      "x-powered-by": "Express",
+      "content-type": "text/html; charset=utf-8",
+      "content-length": "2",
+      "etag": "\"2044517703\"",
+      "date": "Fri, 05 Dec 2014 05:47:22 GMT",
+      "connection": "keep-alive"
+    }
+  }
+]
