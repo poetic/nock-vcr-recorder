@@ -1,9 +1,8 @@
 # Nock VCR Recorder [![Build Status](https://travis-ci.org/poetic/nock-vcr-recorder.svg?branch=master)](https://travis-ci.org/poetic/nock-vcr-recorder)
 
-## About
-
 A test framework agnostic vcr implementation that uses
-[nock](https://github.com/pgte/nock).
+[nock](https://github.com/pgte/nock). Can be used in isolation or test specific
+libraries can be written around it.
 
 ## Install
 
