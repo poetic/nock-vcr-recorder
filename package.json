@@ -1,6 +1,6 @@
 {
   "name": "nock-vcr-recorder",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A test framework agnostic vcr implementation that uses nock.",
   "main": "lib/vcr.js",
   "scripts": {
