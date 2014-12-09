@@ -2,6 +2,7 @@ var path    = require('path');
 var fs      = require('fs');
 var RSVP    = require('rsvp');
 var mkdirp  = require('mkdirp');
+var nock    = require('nock');
 var request = RSVP.denodeify(require('request'));
 var app     = require('./app');
 var vcr     = require('../lib/vcr');
@@ -74,6 +75,23 @@ describe('vcr.useCassette - requests - recording', function() {
       return assert(true);
     }).then(function() {
       assertNotCassette('no file with no request');
+    });
+  });
+
+  describe('makes sure nock is active', function() {
+    beforeEach(function() {
+      mockRecordedCassette('re-activates nock');
+      nock.restore();
+    });
+
+    it('re-activates nock', function() {
+      assert(!nock.isActive(), 'nock is disabled')
+
+      return vcr.useCassette('re-activates nock', function() {
+        return assert(true);
+      }).then(function() {
+        assert(nock.isActive(), 'nock was reactivated')
+      });
     });
   });
 
