@@ -24,10 +24,10 @@
   },
   "homepage": "https://github.com/poetic/nock-vcr-recorder",
   "dependencies": {
-    "lodash-node": "^2.4.1",
+    "lodash-node": "^3.1.0",
     "mkdirp": "^0.5.0",
-    "nock": "^0.51.0",
-    "rsvp": "^3.0.14"
+    "nock": "^0.59.0",
+    "rsvp": "^3.0.16"
   },
   "devDependencies": {
     "express": "^3.4.8",
