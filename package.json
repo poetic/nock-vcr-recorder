@@ -30,7 +30,7 @@
     "rsvp": "^3.0.16"
   },
   "devDependencies": {
-    "express": "^3.4.8",
+    "express": "^4.13.4",
     "mocha": "^2.0.1",
     "request": "~2.72.0"
   }
