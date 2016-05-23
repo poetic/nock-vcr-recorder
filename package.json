@@ -31,7 +31,7 @@
   },
   "devDependencies": {
     "express": "^4.13.4",
-    "mocha": "^2.0.1",
+    "mocha": "^2.5.1",
     "request": "~2.72.0"
   }
 }
