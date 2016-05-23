@@ -1,9 +1,9 @@
 var path    = require('path');
 var fs      = require('fs');
-var RSVP    = require('rsvp');
+var Promise = require('bluebird');
 var mkdirp  = require('mkdirp');
 var nock    = require('nock');
-var request = RSVP.denodeify(require('request'));
+var request = Promise.promisify(require('request'));
 var app     = require('./app');
 var vcr     = require('../lib/vcr');
 var assert  = require('assert');
@@ -11,7 +11,7 @@ var assert  = require('assert');
 describe('vcr.useCassette - callback promises', function() {
   it('resolves', function() {
     return vcr.useCassette('record handles resovled promises', function() {
-      return RSVP.resolve();
+      return Promise.resolve();
     }).then(function() {
       assert.ok(true, 'returned a promise');
     }, function() {
@@ -21,7 +21,7 @@ describe('vcr.useCassette - callback promises', function() {
 
   it('rejects', function() {
     return vcr.useCassette('record handles rejected promises', function() {
-      return RSVP.reject();
+      return Promise.reject();
     }).then(function() {
       assert.ok(false, 'returned an error');
     }, function() {
@@ -145,7 +145,7 @@ describe('vcr.useCassette - requests - recording', function() {
         writeOnFailure: false
       }, function() {
         return request('http://localhost:4006/test').then(function() {
-          return RSVP.reject('mock failed test');
+          return Promise.reject('mock failed test');
         });
       }).then(null, function() {
         assertNotCassette('doesnt save when test fails');
@@ -157,7 +157,7 @@ describe('vcr.useCassette - requests - recording', function() {
         writeOnFailure: true
       }, function() {
         return request('http://localhost:4006/test').then(function() {
-          return RSVP.reject('mock failed test');
+          return Promise.reject('mock failed test');
         });
       }).then(null, function() {
         assertCassette('saves when test fails');
