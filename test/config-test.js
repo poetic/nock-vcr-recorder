@@ -1,6 +1,6 @@
-var RSVP   = require('rsvp');
-var assert = require('assert');
-var vcr    = require('../lib/vcr');
+var Promise = require('bluebird');
+var assert  = require('assert');
+var vcr     = require('../lib/vcr');
 
 describe('vcr - config', function() {
   beforeEach(function() {
@@ -29,7 +29,7 @@ describe('vcr - config', function() {
     return vcr.useCassette('test config', {
       excludeScope: ['github.com']
     }, function() {
-      return RSVP.resolve();
+      return Promise.resolve();
     }).then(function() {
       assert.deepEqual(vcr._config, {
         excludeScope: ['localhost', '127.0.0.1', '0.0.0.0'],
