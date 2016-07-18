@@ -53,6 +53,8 @@ describe('normal test', function() {
 });
 ```
 
+You can also call `vcr.nockReset()` if you need to programmatically remove all mocks.
+
 ## Configuration
 
 Defaults:
